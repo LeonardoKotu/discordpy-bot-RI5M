@@ -1,8 +1,8 @@
-import disnake
-from disnake.ext import commands
+import discord
+from discord.ext import commands
 from keep_alive import keep_alive
 
-bot = InteractionBot()
+bot = discord.Bot()
 
 
 @bot.event
@@ -10,7 +10,7 @@ async def on_ready():
   bot.add_view(General())
   print(f"{bot.user} - connected!")
   await bot.change_presence(
-    activity=disnake.Streaming(name="Памятка сервера", url="https://twich.com")
+    activity=discord.Streaming(name="Памятка сервера", url="https://twich.com")
   )
 
 
@@ -33,7 +33,7 @@ WarnsBot - меры наказаний
 # )
 
 # 1.0
-system_1 = disnake.Embed(
+system_1 = discord.Embed(
   title="<a:a_pink_dot:1096413983700959252> пункт ﹕ `1.0`",
   description="""
 	> `🌼` **Описание - **
@@ -53,7 +53,7 @@ system_1.add_field(name="`⏱` **Длительность - **",
                    inline=True)
 
 # 1.0
-system_2 = disnake.Embed(
+system_2 = discord.Embed(
   title="<a:a_pink_dot:1096413983700959252> пункт ﹕ `1.1`",
   description="""
 	> `🌼` **Описание - **
@@ -73,7 +73,7 @@ system_2.add_field(name="`⏱` **Длительность - **",
                    inline=True)
 
 # 1.0
-system_3 = disnake.Embed(
+system_3 = discord.Embed(
   title="<a:a_pink_dot:1096413983700959252> пункт ﹕ `1.2`",
   description="""
 	> `🌼` **Описание - **
@@ -93,7 +93,7 @@ system_3.add_field(name="`⏱` **Длительность - **",
                    inline=True)
 
 # 1.0
-system_4 = disnake.Embed(
+system_4 = discord.Embed(
   title="<a:a_pink_dot:1096413983700959252> пункт ﹕ `1.3`",
   description="""
 	> `🌼` **Описание - **
@@ -113,7 +113,7 @@ system_4.add_field(name="`⏱` **Длительность - **",
                    inline=True)
 
 # 1.0
-system_5 = disnake.Embed(
+system_5 = discord.Embed(
   title="<a:a_pink_dot:1096413983700959252> пункт ﹕ `1.4`",
   description="""
 	> `🌼` **Описание - **
@@ -133,7 +133,7 @@ system_5.add_field(name="`⏱` **Длительность - **",
                    inline=True)
 
 # 1.0
-system_6 = disnake.Embed(
+system_6 = discord.Embed(
   title="<a:a_pink_dot:1096413983700959252> пункт ﹕ `1.5`",
   description="""
 	> `🌼` **Описание -**
@@ -178,7 +178,7 @@ system_6.set_image(
 )
 
 #1.0
-text_1 = disnake.Embed(
+text_1 = discord.Embed(
   title="<a:a_pink_dot:1096413983700959252> пункт ﹕ `1.6`",
   description="""
 	> `🌼` **Описание - **
@@ -198,7 +198,7 @@ text_1.add_field(name="`⏱` **Длительность - **",
                  inline=True)
 
 #1.0
-text_2 = disnake.Embed(
+text_2 = discord.Embed(
   title="<a:a_pink_dot:1096413983700959252> пункт ﹕ `1.7`",
   description="""
 	> `🌼` **Описание - **
@@ -218,7 +218,7 @@ text_2.add_field(name="`⏱` **Длительность - **",
                  inline=True)
 
 #1.0
-text_3 = disnake.Embed(
+text_3 = discord.Embed(
   title="<a:a_pink_dot:1096413983700959252> пункт ﹕ `1.8`",
   description="""
 	> `🌼` **Описание - **
@@ -250,7 +250,7 @@ text_3.set_image(
   "https://cdn.discordapp.com/attachments/1080131439154176010/1087096393698660503/ScreenShot_20230319223256.jpeg"
 )
 
-voice_1 = disnake.Embed(
+voice_1 = discord.Embed(
   title="<a:a_pink_dot:1096413983700959252> пункт ﹕ `1.9`",
   description="""
 	> `🌼` **Описание - **
@@ -269,7 +269,7 @@ voice_1.add_field(name="`⏱` **Длительность - **",
 	""",
                   inline=True)
 
-voice_2 = disnake.Embed(
+voice_2 = discord.Embed(
   title="<a:a_pink_dot:1096413983700959252> пункт ﹕ `2.0`",
   description="""
 	> `🌼` **Описание - **
@@ -288,7 +288,7 @@ voice_2.add_field(name="`⏱` **Длительность - **",
 	""",
                   inline=True)
 
-voice_3 = disnake.Embed(
+voice_3 = discord.Embed(
   title="<a:a_pink_dot:1096413983700959252> пункт ﹕ `2.1`",
   description="""
 	> `🌼` **Описание - **
@@ -320,7 +320,7 @@ voice_3.set_image(
   "https://cdn.discordapp.com/attachments/1080131439154176010/1087096393698660503/ScreenShot_20230319223256.jpeg"
 )
 
-warns = disnake.Embed(colour=0x2f3136)
+warns = discord.Embed(colour=0x2f3136)
 
 warns.set_image(
   url=
@@ -329,7 +329,7 @@ warns.set_image(
 
 
 # 2.0 Сначала общий раздел, для других опцих.
-class General(disnake.ui.View):
+class General(discord.ui.View):
 
   def __init__(self):
     super().__init__(timeout=None)  # timeout of the view must be set to None
@@ -338,15 +338,15 @@ class General(disnake.ui.View):
     placeholder="Нажми на меня",
     custom_id="click",
     options=[
-      disnake.SelectOption(label="Системное",
+      discord.SelectOption(label="Системное",
                            emoji="<:systemupdate1:1089739471668400209>"),
-      disnake.SelectOption(label="Текстовое",
+      discord.SelectOption(label="Текстовое",
                            emoji="<:hashtag:1089698689804677220>"),
-      disnake.SelectOption(label="Голосовое",
+      discord.SelectOption(label="Голосовое",
                            emoji="<:voicesearch:1089698688361844766>"),
-      disnake.SelectOption(label="Виды наказаний",
+      discord.SelectOption(label="Виды наказаний",
                            emoji="<:warns:1089698684238839880>"),
-      disnake.SelectOption(label="Снять выбор",
+      discord.SelectOption(label="Снять выбор",
                            emoji="<:close1:1089754099186159659>")
     ])
   # :: - при нажатий на любый опции, выполнфется это функция.
@@ -377,7 +377,7 @@ class General(disnake.ui.View):
 async def general(ctx):
 
   # image_embed - первый эмбед, с изображением.
-  image_embed = disnake.Embed(colour=0x2f3136)
+  image_embed = discord.Embed(colour=0x2f3136)
 
   image_embed.set_image(
     url=
@@ -385,7 +385,7 @@ async def general(ctx):
   )
 
   # embed - вывод полный информации о разделах
-  embed = disnake.Embed(
+  embed = discord.Embed(
     title=f"<:white:1100864283883081748> Правила сообщества {ctx.guild}",
     description="""
 		> `::` С помощью **меню-выбора** выберите тип правил.
@@ -409,7 +409,7 @@ async def general(ctx):
 async def on_application_command_error(ctx: discord.ApplicationContext,
                                        error: discord.DiscordException):
   if isinstance(error, commands.NotOwner):
-    await ctx.respond(embed=disnake.Embed(
+    await ctx.respond(embed=discord.Embed(
       description=f"Команда `/general` доступно только овнеру.",
       colour=0x2f3136),
                       ephemeral=True)
@@ -419,10 +419,10 @@ async def on_application_command_error(ctx: discord.ApplicationContext,
 
 """///////////////////////////////////////////////////////////////////////////////////////////"""
 
-textchannels_embed = disnake.Embed(title="", )
+textchannels_embed = discord.Embed(title="", )
 #FFFFFF
 
-text = disnake.Embed(
+text = discord.Embed(
   title="<a:aesthetic_j_star_p:1092056726968225893> Раздел: Навигация",
   description="""
     `🔎` В этом разделе показаны какие **каналы** на сервере существуют, и для чего они предназначены.
@@ -490,7 +490,7 @@ text.add_field(name="⸻・🌴 Help",
 
 text.set_footer(text="Увидели баг? Обратитесь к euphoria#8699")
 
-roles = disnake.Embed(
+roles = discord.Embed(
   title="<:protection:1093127731224526909> **LMNS** **`Администрация`**",
   description="""
     > <:turndown1:1093134655491944489><:tph_pink_dot:1092051639914999838> <@&1091914406222381176> - **Владелец**
@@ -514,19 +514,19 @@ class InfoChannels(discord.ui.View):
   def __init__(self):
     super().__init__(timeout=None)
 
-  @disnake.ui.select(
+  @discord.ui.select(
     placeholder="Что будем смотреть?",
     custom_id="info",
     options=[
-      disnake.SelectOption(label="Навигация",
+      discord.SelectOption(label="Навигация",
                            emoji="<:compass:1089764870418874389>"),
-      disnake.SelectOption(label="Администрация",
+      discord.SelectOption(label="Администрация",
                            emoji="<:setting2:1089764864391655445>"),
-      disnake.SelectOption(label="Команды бота",
+      discord.SelectOption(label="Команды бота",
                            emoji="<:bot:1089764868703399977>"),
-      disnake.SelectOption(label="Экономика",
+      discord.SelectOption(label="Экономика",
                            emoji="<:coins:1089764861279469588>"),
-      disnake.SelectOption(label="Снять выбор",
+      discord.SelectOption(label="Снять выбор",
                            emoji="<:close1:1089754099186159659>")
     ])
   async def select_callback(self, select, interaction):
@@ -550,14 +550,14 @@ class InfoChannels(discord.ui.View):
 @bot.slash_command()
 @commands.is_owner()
 async def information(ctx):
-  image = disnake.Embed(colour=0x2f3136)
+  image = discord.Embed(colour=0x2f3136)
 
   image.set_image(
     url=
     "https://media.discordapp.net/attachments/1100945663283437578/1102939752656814171/21d673fc35c314717c54e6a89c63bf3b.gif"
   )
 
-  embed = disnake.Embed(
+  embed = discord.Embed(
     title=
     f"<:white_heart:1091699308111347852> Информация о сообществе {ctx.guild}",
     description="""
@@ -575,6 +575,4 @@ async def information(ctx):
 
 
 import os
-
-
 bot.run(os.environ["DISCORD_TOKEN"])
